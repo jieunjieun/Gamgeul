@@ -1,0 +1,43 @@
+/* MainBody.js */
+.mainbody {
+    width: 100vw;
+    height: auto;
+    padding-bottom: 250px;
+    border-top: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+}
+
+/* Title.js */
+.title {
+    height: 150px;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+}
+
+.title > div {
+    margin-left: 40px;
+}
+
+
+/* Post.js */
+
+.postList {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    width: 1000px;
+    height: auto;
+    flex-wrap: wrap
+}
+
+.post {
+    width: 200px;
+    height: 200px;
+    border: 1px solid black;
+    margin: 10px 15px 15px 15px;
+}

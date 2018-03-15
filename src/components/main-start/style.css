@@ -1,0 +1,93 @@
+/* folder :: main-start */
+
+/* Basic. js */
+.basic {
+    width: 100vw;
+    height: 500px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    z-index: 2;
+}
+
+.basic::before {
+    content: "";
+    width: 100vw;
+    height: 500px;
+    position: absolute;
+    z-index: 1;
+    background-color: black;
+    opacity: 0.3;
+}
+
+/* Logo.js */
+.logo {
+    width: 200px;
+    height: 100px;
+    position: absolute;
+    left: 30px;
+    top: 30px;
+}
+/* Description.js */
+.description {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    margin: 20px;
+    color: white;
+    z-index: 3;
+}
+
+/* Function.js */
+.func {
+    width: 200px;
+    height: 300px;
+    position: absolute;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-right: 30px;
+}
+
+.create {
+    width: 200px;
+    height: 70px;
+    border: 1px solid black;
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.list {
+    width: 200px;
+    height: 70px;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* Info.js */
+
+.info {
+    width: 100px;
+    height: 30px;
+    /* border: 1px solid black; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.infoBox {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    flex-direction: row;
+    margin: 20px;
+}
+
