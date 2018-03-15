@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './style.css';
-import img from '../../assets/logo.svg';
+import img from '../../../assets/logo.svg';
 
 var logo = {
     width: "180px",
@@ -9,7 +9,7 @@ var logo = {
     left: "25px",
     top: "25px",
     backgroundImage: `url(${ img })`,
-    backgroundSize: "80% auto",
+    backgroundSize: "70% auto",
     backgroundRepeat: "no-repeat",
     backgroundPosition: "center",
     zIndex: "3"

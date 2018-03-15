@@ -4,7 +4,7 @@ import Logo from './Logo';
 import Description from './Description';
 import Func from './Functions';
 import Info from './Info';
-import backImg from '../../assets/main_background.jpg';
+import backImg from '../../../assets/main_background.jpg';
 
 var basicStyle = {
     width: "100vw",

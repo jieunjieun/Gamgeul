@@ -3,6 +3,7 @@ const webpack = require('webpack');
 const uglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = {
+    mode: 'development',
     entry: './src/index.js',
     output: {
         path: __dirname + '/public',
@@ -16,7 +17,7 @@ module.exports = {
                 exclude: '/node_modules/',
                 options: {
                 cacheDirectory: true,
-                presets: ['es2015', 'react']
+                presets: ['es2015', 'react'],
             }
             },
             {
@@ -31,6 +32,8 @@ module.exports = {
                   loader: 'image-webpack-loader',
                   options: {
                     bypassOnDebug: true,
+                    publicPath: './dist',
+                    name: '[name].[ext]?[hash]',
                 },
               },
             ]
@@ -46,6 +49,6 @@ module.exports = {
         hints: false
     },
     plugins: [
-        new uglifyJSPlugin()
+        new uglifyJSPlugin(),
     ]
 }
