@@ -1,6 +1,5 @@
 const path = require('path');
 const webpack = require('webpack');
-const uglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = {
     mode: 'development',
@@ -44,11 +43,5 @@ module.exports = {
         inline: true,
         port: 3000,
         contentBase: __dirname + '/public'
-    },
-    performance: {
-        hints: false
-    },
-    plugins: [
-        new uglifyJSPlugin(),
-    ]
+    }
 }

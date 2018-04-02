@@ -1,0 +1,65 @@
+
+.backBox {
+    width: 100vw;
+    height: 100vh;
+    /* position: absolute; */
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 3;
+    left: 0;
+    position: fixed;
+}
+.editBox {
+    position: absolute;
+    width: 950px;
+    height: 480px;
+    background-color: white;
+    border-radius: 15px;
+    position: absolute;
+    z-index: 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.leftBox {
+    width: 50%;
+    height: 100%;
+    /* border: 1px solid black; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.rightBox {
+    width: 50%;
+    height: 100%;
+    /* border: 1px solid black; */
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+
+.imageBox {
+    width: 400px;
+    height: 400px;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.functionBox {
+    width: 350px;
+    height: 60px;
+    /* border: 1px solid black; */
+    font-family: 'Nanum Gothic', sans-serif;
+    margin-left: 10px;
+}
+
+.functionTitle {
+    font-weight: bold;
+}

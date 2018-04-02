@@ -1,4 +1,8 @@
 import React from 'react';
+import styles from './styles.css';
+import LeftBox from './LeftBox';
+import RightBox from './RightBox';
+
 
 class EditBox extends React.Component {
     constructor(props) {
@@ -7,9 +11,12 @@ class EditBox extends React.Component {
     }
     render() {
         return(
-        <div>
-
-        </div>  
+            <div className = {styles.backBox}>
+                <div className = {styles.editBox}>
+                   <LeftBox/>
+                   <RightBox/>
+                </div>
+            </div>
         );
     }
 }

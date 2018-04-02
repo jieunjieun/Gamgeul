@@ -6,53 +6,49 @@ import { connect } from 'react-redux';
 import tapeImg1 from '../../../assets/tape1.png';
 import tapeImg2 from '../../../assets/tape2.png';
 
-var tape1 = {
-    width: "200px",
-    height : "70px",
-    border: "1px solid black",
-    marginBottom: "40px",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    cursor: "pointer"
-}
 
 class Functions extends React.Component {
     constructor(props) {
         super(props);
+        this.state = {
+            status: 1,
+            currentStatus: '',
+        }
     }
     render() {
+        var tape1 = {
+            backgroundImage: `url(${ tapeImg1 })`
+        }
+        var tape2 = {
+            backgroundImage: `url(${ tapeImg2 })`
+        }
         return (
             <div className = {styles.func}>
-                <div className = {styles.create} style = { tape1 } onClick = { this.props.toggle }>
+                <div style = { tape1 } className = {styles.create} onClick = { this.props.toggle }>
                     감글 생성 하기
                 </div>
-                <div className = {styles.list}>
+                <h1>{ this.props.value }</h1>
+                <div style = { tape2 } className = {styles.list}>
                     내 감글 목록
+                    
                 </div>
             </div>
         );
     }
 }
 
-
-
-const mapStateToProps = (state) => {
-    return {
-        status : state.status,
-    }
-}
-
 const mapDispatchToProps = (dispatch) => {
     return {
-        toggle: () => {
-            console.log('hello');
-            dispatch(toggle_new_post());
-        }
+        toggle: () => dispatch(toggle_new_post('hello'))
     }
 }
 
-Function = connect(mapStateToProps, mapDispatchToProps)(Functions);
+// const mapStateToProps = (state) => {
+//     return {
+//         value: state.index.status
+//     }
+// }
 
+Functions = connect(undefined, mapDispatchToProps)(Functions);
 
 export default Functions;

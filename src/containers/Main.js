@@ -8,6 +8,7 @@ class Main extends React.Component {
             <div>
                 <Start></Start>
                 <MainBody></MainBody>
+                
             </div>
         );
     }

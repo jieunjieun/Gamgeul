@@ -1,4 +1,6 @@
 /* folder :: main-start */
+@import url('https://fonts.googleapis.com/css?family=Nanum+Myeongjo');
+@import url('https://fonts.googleapis.com/css?family=Nanum+Gothic');
 
 /* Basic. js */
 .basic {
@@ -36,6 +38,7 @@
     margin: 20px;
     color: white;
     z-index: 3;
+    font-family: 'Nanum Gothic', sans-serif;
 }
 
 /* Function.js */
@@ -48,16 +51,38 @@
     flex-direction: column;
     justify-content: center;
     margin-right: 30px;
+    font-family: 'Nanum Myeongjo', serif;
+}
+
+.create {
+    width: 200px;
+    height: 70px;
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-size: 110% auto;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+    z-index: 3;
+    font-size: 12px;
 }
 
 
 .list {
     width: 200px;
     height: 70px;
-    border: 1px solid black;
-    display: flex;
     justify-content: center;
     align-items: center;
+    display: flex;
+    background-size: 110% auto;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+    z-index: 3;
+    font-size: 12px;
+    
 }
 
 
