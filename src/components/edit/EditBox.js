@@ -13,8 +13,10 @@ class EditBox extends React.Component {
         return(
             <div className = {styles.backBox}>
                 <div className = {styles.editBox}>
-                   <LeftBox/>
-                   <RightBox/>
+                    <div className = {styles.wrapBox}>
+                        <LeftBox/>
+                        <RightBox/>
+                   </div>
                 </div>
             </div>
         );

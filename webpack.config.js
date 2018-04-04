@@ -19,10 +19,16 @@ module.exports = {
                 presets: ['es2015', 'react'],
             }
             },
+
             {
                 test: /\.css$/,
                 loader: 'style-loader!css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]'
             },
+            // {
+            //     test: /\.sass$/,
+            //     include: path.appSrc,
+            //     loaders: ["style-loader", "css-loader", "sass-loader"]
+            //   },
             {
                 test: /\.(gif|png|jpe?g|svg)$/i,
                 use: [

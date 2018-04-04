@@ -9,7 +9,10 @@ class EditBackground extends React.Component {
         return(
             <div className = {styles.functionBox}>
                 <div className = {styles.functionTitle}>배경</div>
-                <div className = {styles.functions}></div>
+                <div className = {styles.functions}>
+                    <div className ={styles.buttons}>이미지 불러오기</div>
+                    <div className = {styles.buttons}>단색 배경 설정</div>
+                </div>
             </div>
         );
     }

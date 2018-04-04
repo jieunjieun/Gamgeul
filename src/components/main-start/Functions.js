@@ -43,12 +43,6 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-// const mapStateToProps = (state) => {
-//     return {
-//         value: state.index.status
-//     }
-// }
-
 Functions = connect(undefined, mapDispatchToProps)(Functions);
 
 export default Functions;

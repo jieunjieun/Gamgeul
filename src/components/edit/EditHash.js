@@ -9,7 +9,10 @@ class EditHash extends React.Component {
         return(
             <div className = {styles.functionBox}>
                 <div className = {styles.functionTitle}>해시태그</div>
-                <div className = {styles.functions}></div>
+                <div className = {styles.functions}>
+                    <div className = {styles.inputHash}><input type = "text" placeholder = "해시태그를 입력하세요"/></div>
+                    <div className = {styles.hashtag}># 감성</div>
+                </div>
             </div>
         );
     }
