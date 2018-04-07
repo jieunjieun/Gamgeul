@@ -4,6 +4,7 @@ const webpack = require('webpack');
 module.exports = {
     mode: 'development',
     entry: './src/index.js',
+    devtool: "cheap-module-source-map",
     output: {
         path: __dirname + '/public',
         filename: "bundle.js"

@@ -1,16 +1,23 @@
 
-.backBox {
+.basicBox {
     width: 100vw;
     height: 100vh;
     /* position: absolute; */
     top: 0;
+    /* display: none; */
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgba(0, 0, 0, 0.5);
     z-index: 3;
     left: 0;
     position: fixed;
+}
+
+.backgroundBox {
+    position: fixed;
+    width: 100vw;
+    height: 100vw;
+    background-color: rgba(0, 0, 0, 0.5);    
 }
 .editBox {
     position: absolute;
