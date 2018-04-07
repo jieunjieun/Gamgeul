@@ -1,0 +1,358 @@
+
+.basicBox {
+    width: 100vw;
+    height: 100vh;
+    /* position: absolute; */
+    top: 0;
+    /* display: none; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 3;
+    left: 0;
+    position: fixed;
+}
+.basicBox {
+    width: 100vw;
+    height: 100vh;
+    /* position: absolute; */
+    top: 0;
+    /* display: none; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 3;
+    left: 0;
+    position: fixed;
+  }
+  
+  .backgroundBox {
+    position: fixed;
+    width: 100vw;
+    height: 100vw;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  
+  .editBox {
+    position: absolute;
+    width: 950px;
+    height: 480px;
+    background-color: white;
+    border-radius: 15px;
+    position: absolute;
+    z-index: 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1em;
+  }
+  
+  .wrapBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .leftBox {
+    width: 45%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 35px;
+  }
+  
+  .rightBox {
+    width: 45%;
+    height: 100%;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  
+  .imageBox {
+    width: 430px;
+    height: 430px;
+    border: 1px solid black;
+    border-radius: 10px;
+  }
+  
+  .functionBox {
+    width: 300px;
+    /* border: 1px solid black; */
+    font-family: 'Nanum Gothic', sans-serif;
+    margin-left: 10px;
+    margin: 0 0 20px 10px;
+    &:nth-last-child(1) {
+      margin: 0 0 0 10px;
+    }
+  }
+  
+  .functionTitle {
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .buttons {
+    width: 90px;
+    height: 28px;
+    border: 1px solid #5E5E5E;
+    border-radius: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 10px;
+    cursor: pointer;
+    float: left;
+    margin-right: 10px;
+  }
+  
+  .inputHash {
+    width: 190px;
+    height: 28px;
+    border: 1px solid black;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    input {
+      width: 90%;
+      height: 90%;
+      border: none;
+      outline: none;
+      text-indent: 10px;
+      border-radius: 5px;
+    }
+  }
+  
+  .hashtag {
+    width: 60px;
+    height: 23px;
+    border: 2px solid black;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 10px;
+  }
+  
+  .functions select {
+    margin: 3px 10px 3px 0;
+  }
+  
+  .fontSelect {
+    width: 300px;
+    height: 25px;
+    margin-right: 10px;
+  }
+  
+  .fontSize, .fontWeight {
+    width: 100px;
+    height: 25px;
+  }
+  
+  .between, .lineHeight {
+    width: 60px;
+    height: 25px;
+  }
+  
+  .logowrap {
+    position: relative;
+    display: inline-block;
+    left: 33px;
+    margin-right: 30px;
+    &:nth-last-child(1) {
+      margin-right: 0;
+    }
+    &::before {
+      content: " ";
+      width: 25px;
+      height: 25px;
+      left: -33px;
+      margin: 3px 3px 3px 3px;
+      background-image: url('../../../assets/between.png');
+      background-size: 100% auto;
+      position: absolute;
+      background-position: center;
+      background-repeat: no-repeat;
+      /* border: 1px solid black; */
+    }
+    &:nth-child(2)::before {
+      background-image: url('../../../assets/lineHeight.png');
+    }
+  }
+.backgroundBox {
+    position: fixed;
+    width: 100vw;
+    height: 100vw;
+    background-color: rgba(0, 0, 0, 0.5);    
+}
+.editBox {
+    position: absolute;
+    width: 950px;
+    height: 480px;
+    background-color: white;
+    border-radius: 15px;
+    position: absolute;
+    z-index: 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1em;
+}
+
+.wrapBox {
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.leftBox {
+    width: 45%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 35px;
+}
+
+.rightBox {
+    width: 45%;
+    height: 100%;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+
+.imageBox {
+    width: 430px;
+    height: 430px;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.functionBox {
+    width: 300px;
+    /* border: 1px solid black; */
+    font-family: 'Nanum Gothic', sans-serif;
+    margin-left: 10px;
+    margin: 0 0 20px 10px;
+}
+
+.functionBox:nth-last-child(1) {
+    margin: 0 0 0 10px;
+}
+
+.functionTitle {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.buttons {
+    width: 90px;
+    height: 28px;
+    border: 1px solid #5E5E5E;
+    border-radius: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 10px;
+    cursor: pointer;
+    float: left;
+    margin-right: 10px;
+}
+
+.inputHash {
+    width: 190px;
+    height: 28px;
+    border: 1px solid black;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.inputHash input{
+    width: 90%;
+    height: 90%;
+    border: none;
+    outline: none;
+    text-indent: 10px;
+    border-radius: 5px;
+}
+
+.hashtag {
+    width: 60px;
+    height: 23px;
+    border: 2px solid black;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 10px;
+}
+
+.functions select {
+    margin: 3px 10px 3px 0;
+}
+.fontSelect {
+    width: 300px;
+    height: 25px;
+    margin-right: 10px;
+}
+
+.fontSize {
+    width: 100px;
+    height: 25px;
+}
+
+.fontWeight {
+    width: 100px;
+    height: 25px;
+}
+
+
+.between {
+    width: 60px;
+    height: 25px;
+}
+
+.lineHeight {
+    width: 60px;
+    height: 25px;
+}
+
+.logowrap {
+    position: relative;
+    display: inline-block;
+    left: 33px;
+    margin-right: 30px;
+}
+
+.logowrap:nth-last-child(1) {
+    margin-right: 0;
+}
+
+.logowrap::before {
+    content: " ";
+    width: 25px;
+    height: 25px;
+    left: -33px;
+    margin: 3px 3px 3px 3px;
+    background-image: url('../../../assets/between.png');
+    background-size: 100% auto;
+    position: absolute;
+    background-position: center;
+    background-repeat: no-repeat;
+    /* border: 1px solid black; */
+}
+
+
+.logowrap:nth-child(2)::before {
+    background-image: url('../../../assets/lineHeight.png');
+}
+
+
+ 

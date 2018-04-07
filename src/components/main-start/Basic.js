@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './style.css';
+import styles from './style.scss';
 import Logo from './Logo';
 import Description from './Description';
 import Func from './Functions';
@@ -19,7 +19,7 @@ var basicStyle = {
 class Basic extends React.Component {
     render() {
         return(
-            <div className = {styles.basic}   style={ basicStyle }>
+            <div className = {styles.basic} style={ basicStyle }>
                 <Logo/>
                 <Info/>
                 <Description/>

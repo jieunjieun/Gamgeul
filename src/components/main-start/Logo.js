@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './style.css';
+import styles from './style.scss';
 import img from '../../../assets/logo.svg';
 
 var logo = {

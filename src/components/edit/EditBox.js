@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './styles.css';
+import styles from './styles.scss';
 import LeftBox from './LeftBox';
 import RightBox from './RightBox';
 import { connect } from 'react-redux';

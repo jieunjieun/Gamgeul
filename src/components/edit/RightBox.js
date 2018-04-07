@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './styles.css'
+import styles from './styles.scss'
 import EditBackground from './EditBackground';
 import EditTextBox from './EditTextBox';
 import EditTextStyle from './EditTextStyle';

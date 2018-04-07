@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './style.css'
+import styles from './style.scss'
 import EditBox from '../edit/EditBox';
 import tapeImg1 from '../../../assets/tape1.png';
 import tapeImg2 from '../../../assets/tape2.png';

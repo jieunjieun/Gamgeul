@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '../components/main-body/style.css';
+import styles from '../components/main-body/style.scss';
 import Title from '../components/main-body/Title';
 import Post from '../components/main-body/Post';
 
