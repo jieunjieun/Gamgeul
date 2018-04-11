@@ -93,6 +93,17 @@
     cursor: pointer;
     float: left;
     margin-right: 10px;
+    position: relative;
+
+    input {
+      width: 100px;
+      height: 30px;
+      border: 1px solid black;
+      position: absolute;
+      opacity: 0;
+      cursor: pointer;
+    }
+
   }
   
   .inputHash {
@@ -173,4 +184,6 @@
       }
 
   }
+  
+
   
