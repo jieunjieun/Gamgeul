@@ -16,6 +16,7 @@ class EditBackground extends React.Component {
                 <div className = {styles.functions}>
                     <div className ={styles.buttons}><input type = "file" onChange = { (e) => this.getImage(e)} accept= "image/*" />이미지 불러오기</div>
                     <div className = {styles.buttons}><input type = "color" onChange = {(e) => this.getSimpleBack(e) }/>단색 배경 설정</div>
+                    <div className = {styles.trash} onClick = { this.props.initData }></div>
                 </div>
             </div>
         );
@@ -46,8 +47,12 @@ const mapDispatchToProps = (dispatch) => {
             },
         setColor: (color) => {
                 dispatch(get_background_color(color));
+            },
+        initData: () => {
+                dispatch(get_background_color(''))
+                dispatch(get_image_url(''))
             }
-        }
+        }        
     }
 
 EditBackground = connect(undefined, mapDispatchToProps)(EditBackground);
