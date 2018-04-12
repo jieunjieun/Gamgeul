@@ -1,11 +1,17 @@
 import React from 'react';
 import styles from './styles.scss'
-import { get_image_url } from '../../actions/edit';
+import { get_image_url, get_background_color } from '../../actions/edit';
 import { connect } from 'react-redux';
 
 class EditBackground extends React.Component {
     constructor(props) {
         super(props);
+
+        this.state = {
+            isSetbackClicked : 0
+        }
+
+        this.getSimpleBack = this.getSimpleBack.bind(this);
     }
     render(){
         return(
@@ -13,7 +19,7 @@ class EditBackground extends React.Component {
                 <div className = {styles.functionTitle}>배경</div>
                 <div className = {styles.functions}>
                     <div className ={styles.buttons}><input type = "file" onChange = { (e) => this.getImage(e)} accept= "image/*" />이미지 불러오기</div>
-                    <div className = {styles.buttons}>단색 배경 설정</div>
+                    <div className = {styles.buttons}><input type = "color" onChange = {(e) => this.getSimpleBack(e) }/>단색 배경 설정</div>
                 </div>
             </div>
         );
@@ -31,6 +37,13 @@ class EditBackground extends React.Component {
         }
         reader.readAsDataURL(file);
     }
+
+    getSimpleBack(event) {
+        this.setState({
+            isSetbackClicked: this.state.isSetbackClicked == false ? 1 : 0
+        })
+        this.props.setColor(event.target.value);
+    }
 }
 
 const mapDispatchToProps = (dispatch) => {
@@ -38,6 +51,10 @@ const mapDispatchToProps = (dispatch) => {
         imageChange: (value) => {
                 console.log(value);
                 dispatch(get_image_url(value));
+            },
+        setColor: (color) => {
+                console.log(color);
+                dispatch(get_background_color(color));
             }
         }
     }

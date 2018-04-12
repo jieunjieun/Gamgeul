@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './styles.scss';
 import { connect } from 'react-redux';
-import { get_image_url } from '../../actions/edit';
+import { get_image_url, get_background_color } from '../../actions/edit';
 
 class ImageBox extends React.Component {
     constructor(props) {
@@ -9,8 +9,9 @@ class ImageBox extends React.Component {
 
     }
     render() {
+        var color = this.props.color
         return(
-            <div className = {styles.imageBox}>
+            <div className = {styles.imageBox} style = {{background: color}}>
                 <img src = {this.props.image_url}/>
             </div>
         );
@@ -19,7 +20,8 @@ class ImageBox extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-        image_url: state.edit.editImage
+        image_url: state.edit.editImage,
+        color : state.edit.currentColor
     }
 }
 
