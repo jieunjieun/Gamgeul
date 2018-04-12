@@ -7,10 +7,6 @@ class EditBackground extends React.Component {
     constructor(props) {
         super(props);
 
-        this.state = {
-            isSetbackClicked : 0
-        }
-
         this.getSimpleBack = this.getSimpleBack.bind(this);
     }
     render(){
@@ -39,9 +35,6 @@ class EditBackground extends React.Component {
     }
 
     getSimpleBack(event) {
-        this.setState({
-            isSetbackClicked: this.state.isSetbackClicked == false ? 1 : 0
-        })
         this.props.setColor(event.target.value);
     }
 }
@@ -49,11 +42,9 @@ class EditBackground extends React.Component {
 const mapDispatchToProps = (dispatch) => {
     return {
         imageChange: (value) => {
-                console.log(value);
                 dispatch(get_image_url(value));
             },
         setColor: (color) => {
-                console.log(color);
                 dispatch(get_background_color(color));
             }
         }
