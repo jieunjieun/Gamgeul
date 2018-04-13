@@ -1,7 +1,9 @@
-import { GET_IMAGE_URL, GET_BACKGROUND_COLOR } from '../actions/edit';
+import { GET_IMAGE_URL, GET_BACKGROUND_COLOR, ADD_NEW_TEXTBOX } from '../actions/edit';
 
 const InitialState = {
-    editImage: ''
+    editImage: '',
+    boxid: 0,
+    text: ''
 }
 
 const edit = (state = InitialState, action) => {
@@ -13,6 +15,11 @@ const edit = (state = InitialState, action) => {
         case GET_BACKGROUND_COLOR:
             return Object.assign({}, state, {
                 currentColor: action.color
+            })
+        case ADD_NEW_TEXTBOX:
+            return Object.assign({}, state, {
+                boxid: state.boxid + 1,
+                text : action.text
             })
         default:
             return state;

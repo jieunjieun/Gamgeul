@@ -11,18 +11,12 @@ class Functions extends React.Component {
         super(props);
     }
     render() {
-        var tape1 = {
-            backgroundImage: `url(${ tapeImg1 })`
-        }
-        var tape2 = {
-            backgroundImage: `url(${ tapeImg2 })`
-        }
         return (
             <div className = {styles.func}>
-                <div style = { tape1 } className = {styles.create} onClick = {this.props.modalToggle}>
+                <div className = {styles.create} onClick = {this.props.modalToggle}>
                     감글 생성 하기
                 </div>
-                <div style = { tape2 } className = {styles.list} >
+                <div className = {styles.list} >
                     내 감글 목록
                 </div>
             </div>

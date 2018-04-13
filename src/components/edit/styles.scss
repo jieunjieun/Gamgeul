@@ -61,9 +61,10 @@
   .imageBox {
     width: 430px;
     height: 430px;
-    border: 1px solid black;
+    border: 1px solid #DBDBDB;
     border-radius: 10px;
     display: flex;
+    position: relative;
     justify-content: center;
     align-items: center;
     img {
@@ -206,5 +207,12 @@
 
   }
   
-
-  
+.textbox {
+  width: 100px;
+  height: 100px;
+  background-color: black;
+  border: 1px solid black; 
+  position: absolute;
+  top: 0;
+  left: 0;
+}
