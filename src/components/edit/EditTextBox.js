@@ -6,6 +6,9 @@ import { add_new_textbox } from '../../actions/edit';
 class EditTextBox extends React.Component {
     constructor(props) {
         super(props);
+        this.state = {
+            
+        }
     }
     render() {
         return(
@@ -23,7 +26,7 @@ class EditTextBox extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-        id: state.edit.boxid ,
+        id: state.edit.boxid,
         text: state.edit.text
     }
 }
@@ -31,7 +34,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         addBox : () => {
-            dispatch(add_new_textbox(0)); // 매개변수 2개 boxid, text
+            dispatch(add_new_textbox()); 
         }
     }
 }

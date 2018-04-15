@@ -7,23 +7,27 @@ import TextBox from './TextBox';
 class ImageBox extends React.Component {
     constructor(props) {
         super(props);
+        this.state = {
+            
+        }
 
     }
     render() {
         var color = this.props.color
         return(
             <div className = {styles.imageBox} style = {{background: color}}>
-            <TextBox/>
+                <TextBox/>
                 <img src = {this.props.image_url}/>
             </div>
         );
     }
 }
 
+
 const mapStateToProps = (state) => {
     return {
         image_url: state.edit.editImage,
-        color : state.edit.currentColor
+        color : state.edit.currentColor,
     }
 }
 

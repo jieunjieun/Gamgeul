@@ -16,10 +16,10 @@ export function get_background_color(color) {
     }
 }
 
-export function add_new_textbox (boxid, text) {
+export function add_new_textbox (boxid, text, box) {
     return {
         type: ADD_NEW_TEXTBOX,
         boxid,
-        text
+        text,
     }
 }

@@ -19,7 +19,7 @@ const edit = (state = InitialState, action) => {
         case ADD_NEW_TEXTBOX:
             return Object.assign({}, state, {
                 boxid: state.boxid + 1,
-                text : action.text
+                text : action.text,
             })
         default:
             return state;
