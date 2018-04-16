@@ -56,7 +56,7 @@ class TextBox extends React.Component {
                         x: event.clientX,
                         y : event.clientY
                     };
-                    if(mousePosition.x >= 127 && mousePosition.x <= 455 && mousePosition.y >= 294 && mousePosition.y <= 622) {
+                    if(mousePosition.x >= 130 && mousePosition.x <= 450 && mousePosition.y >= 294 && mousePosition.y <= 600) {
                         item.style.left = (mousePosition.x + offset[0]) + 'px';
                         item.style.top = (mousePosition.y + offset[1]) + 'px';
                     }
