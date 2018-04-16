@@ -21,27 +21,23 @@ class TextBox extends React.Component {
                 this.state.box.map((item) => {
                     this.addDyna(item.id);
                     return(
-                    <div className = {styles.box} key = { item.id } id = { item.id } onClick = {() => this.addDyna(item.id)}>
+                    <div className = {styles.box} key = { item.id } id = { item.id }  onClick = {() => {this.addDyna(item.id)}} >
                         myname is : { item.id }
                     </div>
                     )
-                    
                 })
             }
             </div>
         )
+        
     }
     addDyna(value) {
-       
         var item = document.getElementById(value);
         var offset = [0,0];
         var isDown = false;
         var mousePosition;
-        if(item) {
 
-            this.addMD = function () {
-                console.log('hello')
-            }
+        if(item) {
             item.addEventListener('mousedown', function(e) {
                 isDown = true;
                 offset = [
@@ -60,8 +56,15 @@ class TextBox extends React.Component {
                         x: event.clientX,
                         y : event.clientY
                     };
-                    item.style.left = (mousePosition.x + offset[0]) + 'px';
-                    item.style.top = (mousePosition.y + offset[1]) + 'px';
+                    if(mousePosition.x >= 127 && mousePosition.x <= 455 && mousePosition.y >= 294 && mousePosition.y <= 622) {
+                        item.style.left = (mousePosition.x + offset[0]) + 'px';
+                        item.style.top = (mousePosition.y + offset[1]) + 'px';
+                    }
+                    else {
+                        document.addEventListener('mouseup', function () {
+                            isDown = false;
+                        }, true);
+                    }
                 }
             }, true)
 
