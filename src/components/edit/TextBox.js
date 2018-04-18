@@ -38,6 +38,10 @@ class TextBox extends React.Component {
         var mousePosition;
 
         if(item) {
+            const elePosition = item.getBoundingClientRect();
+            const eleLimit = [430 - elePosition.width + 2, 430 - elePosition.height + 2]
+
+            console.log(eleLimit);
             item.addEventListener('mousedown', function(e) {
                 isDown = true;
                 offset = [
@@ -56,15 +60,21 @@ class TextBox extends React.Component {
                         x: event.clientX,
                         y : event.clientY
                     };
-                    if(mousePosition.x >= 130 && mousePosition.x <= 450 && mousePosition.y >= 294 && mousePosition.y <= 600) {
                         item.style.left = (mousePosition.x + offset[0]) + 'px';
                         item.style.top = (mousePosition.y + offset[1]) + 'px';
-                    }
-                    else {
+
+                        const left = (mousePosition.x + offset[0]);
+                        const top = (mousePosition.y + offset[1]);
+
+                        top < 0 ? item.style.top = 0 + 'px' : true
+                        top > eleLimit[1] ? item.style.top = eleLimit[1] + 'px' : true
+
+                        left < 0 ? item.style.left = 0 + 'px' : true
+                        left > eleLimit[0] ? item.style.left = eleLimit[1] + 'px' : true
+
                         document.addEventListener('mouseup', function () {
                             isDown = false;
                         }, true);
-                    }
                 }
             }, true)
 

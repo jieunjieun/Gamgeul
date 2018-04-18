@@ -3,6 +3,12 @@
 
 @import url('https://fonts.googleapis.com/css?family=Nanum+Gothic');
 
+
+@mixin disFlex() {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 /* Basic. js */
 
 .basic {
@@ -66,12 +72,10 @@
 }
 
 .create {
+  @include disFlex();
   width: 200px;
   height: 70px;
   margin-bottom: 40px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   background-image: url(../../../assets/tape1.png);
   background-size: 110% auto;
   background-repeat: no-repeat;
@@ -82,11 +86,9 @@
 }
 
 .list {
+  @include disFlex();
   width: 200px;
   height: 70px;
-  justify-content: center;
-  align-items: center;
-  display: flex;
   background-size: 110% auto;
   background-repeat: no-repeat;
   background-position: center;
@@ -102,9 +104,7 @@
   width: 100px;
   height: 30px;
   /* border: 1px solid black; */
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @include disFlex();
 }
 
 .infoBox {
