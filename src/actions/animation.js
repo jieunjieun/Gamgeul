@@ -1,7 +1,14 @@
-export const TOGGLE_MODAL = 'TOGGLE_MODAL';
+export const TOGGLE_EDIT_MODAL = 'TOGGLE_EDIT_MODAL';
+export const TOGGLE_VIEW_MODAL = 'TOGGLE_VIEW_MODAL';
 
-export function toggle_modal() {
+export function toggle_edit_modal() {
     return {
-        type: TOGGLE_MODAL,
+        type: TOGGLE_EDIT_MODAL,
+    }
+}
+
+export function toggle_view_modal() {
+    return {
+        type: TOGGLE_VIEW_MODAL
     }
 }

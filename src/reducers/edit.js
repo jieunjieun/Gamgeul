@@ -2,7 +2,7 @@ import { GET_IMAGE_URL, GET_BACKGROUND_COLOR, ADD_NEW_TEXTBOX } from '../actions
 
 const InitialState = {
     editImage: '',
-    boxid: 0,
+    numberOfBox: 0,
     text: ''
 }
 
@@ -18,7 +18,7 @@ const edit = (state = InitialState, action) => {
             })
         case ADD_NEW_TEXTBOX:
             return Object.assign({}, state, {
-                boxid: state.boxid + 1,
+                numberOfBox: state.numberOfBox + 1,
                 text : action.text,
             })
         default:

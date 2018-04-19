@@ -1,0 +1,31 @@
+@mixin disFlex() {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+// ViewContainer.js
+.basicBox {
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    @include disFlex();
+    z-index: 3;
+    left: 0;
+    position: fixed;
+}
+
+.viewbox {
+    width: 700px;
+    height: 500px;
+    background-color: white;
+    @include disFlex();
+    border-radius: 20px;
+    z-index: 1;
+}
+
+.backBox {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.5);
+}

@@ -3,7 +3,7 @@ import styles from './styles.scss';
 import LeftBox from './LeftBox';
 import RightBox from './RightBox';
 import { connect } from 'react-redux';
-import { toggle_modal } from '../../actions/animation';
+import { toggle_edit_modal } from '../../actions/animation';
 import { get_background_color, get_image_url } from '../../actions/edit';
 
 class EditBox extends React.Component {
@@ -28,14 +28,14 @@ class EditBox extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-        isModalShow : state.animation.isToggle
+        isModalShow : state.animation.isEditModalToggle
     }   
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
         modalToggle : () => {
-            dispatch(toggle_modal())
+            dispatch(toggle_edit_modal())
             dispatch(get_background_color(''))
             dispatch(get_image_url(''))
         }

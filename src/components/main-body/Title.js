@@ -5,7 +5,7 @@ class Title extends React.Component {
     render() {
         return(
             <div className = {styles.title}>
-                <div>뜨고있는 감글</div>
+                <div>인기있는 감글</div>
             </div>
         );
     }

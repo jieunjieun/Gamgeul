@@ -1,15 +1,20 @@
-// import { TOGGLE_MODAL } from' ../actions'
-import { TOGGLE_MODAL } from '../actions/animation';
+// import { TOGGLE_EDIT_MODAL } from' ../actions'
+import { TOGGLE_EDIT_MODAL, TOGGLE_VIEW_MODAL } from '../actions/animation';
 
 const InitialState = {
-    isToggle: 0
+    isEditModalToggle: 0,
+    isViewModalToggle: 0
 };
 
 const animation = (state = InitialState, action) => {
     switch(action.type) {
-        case TOGGLE_MODAL:
+        case TOGGLE_EDIT_MODAL:
             return Object.assign({}, state, {
-                isToggle: state.isToggle == false ? 1 : 0
+                isEditModalToggle: state.isEditModalToggle == false ? 1 : 0
+            })
+        case TOGGLE_VIEW_MODAL:
+            return Object.assign({}, state, {
+                isViewModalToggle : state.isEditModalToggle == false ? 1 : 0
             })
         default:
             return state;

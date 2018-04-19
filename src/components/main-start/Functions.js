@@ -4,7 +4,7 @@ import EditBox from '../edit/EditBox';
 import tapeImg1 from '../../../assets/tape1.png';
 import tapeImg2 from '../../../assets/tape2.png';
 import { connect } from 'react-redux';
-import { toggle_modal } from '../../actions/animation';
+import { toggle_edit_modal } from '../../actions/animation';
 
 class Functions extends React.Component {
     constructor(props) {
@@ -27,7 +27,7 @@ class Functions extends React.Component {
 const mapDispatchToProps = (dispatch) => {
     return {
         modalToggle : () => {
-            dispatch(toggle_modal())
+            dispatch(toggle_edit_modal())
         }
     }
 } 

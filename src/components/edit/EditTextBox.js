@@ -17,7 +17,6 @@ class EditTextBox extends React.Component {
                 <div className = {styles.functions}>
                     <div className ={styles.buttons} onClick = { this.props.addBox }>박스 추가</div>
                     <div className = {styles.buttons}>박스 색상</div>
-                    <div>id is { this.props.id }</div>
                 </div>
             </div>
         );
@@ -26,7 +25,7 @@ class EditTextBox extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-        id: state.edit.boxid,
+        id: state.edit.numberOfBox,
         text: state.edit.text
     }
 }
