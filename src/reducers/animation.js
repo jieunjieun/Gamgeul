@@ -14,7 +14,7 @@ const animation = (state = InitialState, action) => {
             })
         case TOGGLE_VIEW_MODAL:
             return Object.assign({}, state, {
-                isViewModalToggle : state.isEditModalToggle == false ? 1 : 0
+                isViewModalToggle : state.isViewModalToggle == false ? 1 : 0
             })
         default:
             return state;

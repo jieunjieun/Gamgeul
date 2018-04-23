@@ -1,0 +1,28 @@
+.deleteButton {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40px;
+    margin: 40px 20px;
+    height: 1px;
+    background-color: #C4C4C4;
+    transform: rotate(45deg);
+    cursor: pointer;
+
+    &:before {
+        content: "";
+        width : 1px;
+        height: 40px;
+        background-color: #C4C4C4;
+        position: absolute;
+        top: -20px;
+        left: 20px;
+    }
+
+    &:hover {
+        &:before {
+            background-color: gray;
+        }
+        background-color: gray;
+    }
+}

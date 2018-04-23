@@ -2,7 +2,6 @@ import React from 'react';
 import styles from './style.scss';
 import { connect } from 'react-redux';
 import PostList from './PostList';
-import { TOGGLE_VIEW_MODAL } from '../../actions/animation'
 
 class Post extends React.Component {
     constructor(props) {
