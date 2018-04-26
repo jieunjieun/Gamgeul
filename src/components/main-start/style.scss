@@ -13,15 +13,18 @@
 
 .basic {
   width: 100vw;
+  overflow-x: hidden;
+  perspective: 1px;
   height: 500px;
   position: relative;
   display: flex;
   align-items: center;
   background-image: url('../../../assets/main_background.jpg');
   justify-content: center;
-  background-size: 100% cover;
+  background-size: cover;
   background-repeat: no-repeat;
   z-index: 2;
+  
   &::before {
     content: "";
     width: 100vw;

@@ -1,7 +1,7 @@
 import React from 'react';
-import Basic from '../components/main-start/Basic';
-import EditBox from '../components/edit/EditBox';
-import ViewContainer from '../components/contents-view/ViewContainer'
+import Basic from '../main-start/Basic';
+import EditBox from '../edit/EditBox';
+import ViewContainer from '../contents-view/ViewContainer'
 
 class Start extends React.Component{
     constructor(props) {

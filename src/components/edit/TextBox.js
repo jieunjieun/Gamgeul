@@ -19,7 +19,6 @@ class TextBox extends React.Component {
             <div className = {styles.textbox}>
             {
                 this.state.box.map((currentBox) => {
-                    this.addDyna(currentBox.id);
                     return(
                     <div className = {styles.box} key = { currentBox.id } id = { currentBox.id }  onClick = {() => {this.addDyna(currentBox.id)}} >
                         myname is : { currentBox.id }
@@ -58,7 +57,7 @@ class TextBox extends React.Component {
             }, true);
 
             document.addEventListener('mousemove', function (e) {     //마우스를 이동하면
-                e.preventDefault();   //이벤트 전파 방지
+                // e.preventDefault();   //이벤트 전파 방지
                 if(isDown) {           //눌린게 맞으면
                     mousePosition = {       
                         x: event.clientX,
@@ -80,23 +79,27 @@ class TextBox extends React.Component {
                         }, true);
                 }
             }, true)
-            handleBox.addEventListener('mousedown', function() {
-                handleisDown = true;
-            }, true)
-            handleBox.addEventListener('mousemove', function (e) {
-                if(handleisDown) {
-                    isDown = false;
-                    currentBox.style.width = (elePosition.width + e.offsetX) + 'px';
-                    currentBox.style.height = (elePosition.height + e.offsetX) + 'px';
-                }
-            }, true)
 
-            handleBox.addEventListener('mouseup', function () {
-                currentBox.addEventListener('mousedown', function () {
-                    isDown = true
-                })
+            handleBox.addEventListener('mousedown', initiallize, false);
+
+            function initiallize(e) {
+                handleisDown = true;
+                handleBox.addEventListener('mousemove', startResize, false);
+                handleBox.addEventListener('mouseup', stopResize, false);
+            }
+
+            function startResize(e) {
+                isDown = false;
+                currentBox.style.width = (elePosition.width + e.offsetX) + 'px';
+                currentBox.style.height = (elePosition.height + e.offsetY) + 'px';
+            }
+
+            function stopResize(e) {
+                handleBox.removeEventListener('mousemove', startResize, false);
+                handleBox.removeEventListener('mouseup', stopResize, false);
                 handleisDown = false;
-            }, true);
+                isDown = true;
+            }
             
         }
     }
