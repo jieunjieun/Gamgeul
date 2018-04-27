@@ -12,7 +12,9 @@ class TextBox extends React.Component {
     }
 
     componentWillReceiveProps() {
-        this.state.box.push({id: this.props.numberOfBox+1, name: 'hello'})
+        if(this.props.numberOfBox >= 0) {
+            this.state.box.push({id : this.props.numberOfBox + 1, name: 'hello'})
+        }
     }
     render() {
         return(

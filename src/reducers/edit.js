@@ -3,7 +3,8 @@ import { GET_IMAGE_URL, GET_BACKGROUND_COLOR, ADD_NEW_TEXTBOX } from '../actions
 const InitialState = {
     editImage: '',
     numberOfBox: 0,
-    text: ''
+    text: '',
+    status: 0
 }
 
 const edit = (state = InitialState, action) => {
@@ -21,6 +22,7 @@ const edit = (state = InitialState, action) => {
                 numberOfBox: state.numberOfBox + 1,
                 text : action.text,
             })
+       
         default:
             return state;
     }

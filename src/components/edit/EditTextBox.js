@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './styles.scss';
 import { connect } from 'react-redux';
-import { add_new_textbox } from '../../actions/edit';
+import { add_new_textbox, add_test_new_textbox } from '../../actions/edit';
 
 class EditTextBox extends React.Component {
     constructor(props) {
@@ -26,7 +26,8 @@ class EditTextBox extends React.Component {
 const mapStateToProps = (state) => {
     return {
         id: state.edit.numberOfBox,
-        text: state.edit.text
+        text: state.edit.text,
+        box : state.edit.boxCreate
     }
 }
 
@@ -34,6 +35,7 @@ const mapDispatchToProps = (dispatch) => {
     return {
         addBox : () => {
             dispatch(add_new_textbox()); 
+            // dispatch(add_test_new_textbox(1));
         }
     }
 }
