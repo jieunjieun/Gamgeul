@@ -42,16 +42,22 @@ class EditHash extends React.Component {
                 this.setState((prevState) => ({
                     tags: prevState.tags.concat(text)
                 }))
-                document.getElementById('hashtagInput').value = "";
             }
             else {
                 window.alert('해쉬태그는 5개 이상 설정할 수 없습니다.')
             }
+            document.getElementById('hashtagInput').value = "";
+            
         }
     }
 
     deleteHashtag (id) {
-        console.log(id);
+        console.log(this.state.tags);
+        const arr = this.state.tags
+        arr.splice(id, 1);
+        this.setState({
+            tags: arr
+        })
     }
 
  }
