@@ -26,12 +26,14 @@ class TextBoxHandle extends React.Component {
         }
         function startResize(e) {
             this.props.boxisDown(false)
+            
         }
         function stopResize(e) {
             box.removeEventListener('mousemove', startResize, false);
             box.removeEventListener('mouseup', stopResize, false);
             this.props.handleisDown(false);
             this.props.boxisDown(true);
+
         }
     }
 }
