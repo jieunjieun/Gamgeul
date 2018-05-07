@@ -11,7 +11,6 @@ class ViewContainer extends React.Component {
         super(props);
     }
     render () {
-        console.log(this.props.isViewShow);
         return (
             <div className = {styles.basicBox} style = {{'display' : this.props.isViewShow ? 'flex' : 'none'}}>
             <div className = {styles.backBox} onClick = { this.props.modalClose }>helo</div>

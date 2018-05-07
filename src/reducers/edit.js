@@ -1,10 +1,10 @@
-import { GET_IMAGE_URL, GET_BACKGROUND_COLOR, ADD_NEW_TEXTBOX, SET_BOX_STATE, SET_BOX_PROPERTY } from '../actions/edit';
+import { GET_IMAGE_URL, GET_BACKGROUND_COLOR, ADD_NEW_TEXTBOX, SET_BOX_STATE, SET_BOX_PROPERTY, SET_EDIT_STATUS } from '../actions/edit';
 
 const InitialState = {
     editImage: '',
     numberOfBox: 0,
     text: '',
-    status: 0
+    status: 0,
 }
 
 const edit = (state = InitialState, action) => {
@@ -24,16 +24,15 @@ const edit = (state = InitialState, action) => {
                 numberOfBox: state.numberOfBox + 1,
                 text : action.text,
             })
-        case SET_BOX_STATE:
-            return Object.assign({}, state, {
-                handleisDown : action.handleisDown,
-                boxisDown : action.boxisDown
-            })
         case SET_BOX_PROPERTY:
-            return Object.assign({}), state, {
+            return Object.assign({}, state, {
                 width : action.width,
                 height : action.height
-            }
+            })
+        case SET_EDIT_STATUS:
+            return Object.assign({}, state, {
+                boxisdown : action.boxisdown
+            })
         default:
             return state;
     }

@@ -4,6 +4,7 @@ export const ADD_NEW_TEXTBOX = 'ADD_NEW_TEXTBOX'
 export const SET_BOX_STATE = 'SET_BOX_STATE'
 export const SET_HANDLE_STATE = 'SET_HANDLE_STATE'
 export const SET_BOX_PROPERTY = 'SET_BOX_PROPERTY'
+export const SET_EDIT_STATUS = 'SET_EDIT_STATUS'
 
 export function get_image_url(url) {
     return {
@@ -27,20 +28,6 @@ export function add_new_textbox (numberOfBox, text, box) {
     }
 }
 
-export function set_box_state ( boxisDown) {
-    return {
-        type: SET_BOX_STATE,
-        boxisDown
-    }
-}
-
-export function set_handle_state (handleisDown) {
-    return {
-        type: SET_HANDLE_STATE,
-        handleisDown
-    }
-}
-
 export function set_box_property (width, height) {
     return {
         type: SET_BOX_PROPERTY,
@@ -48,6 +35,15 @@ export function set_box_property (width, height) {
         height
     }
 }
+
+export function set_edit_status (boxisdown) {
+    return {
+        type: SET_EDIT_STATUS, 
+        boxisdown
+    }
+}
+
+
 
 
 

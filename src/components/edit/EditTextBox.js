@@ -16,7 +16,7 @@ class EditTextBox extends React.Component {
                 <div className = {styles.functionTitle}>텍스트박스</div>
                 <div className = {styles.functions}>
                     <div className ={styles.buttons} onClick = { this.props.addBox }>박스 추가</div>
-                    <div className = {styles.buttons}>박스 색상</div>
+                    <div className = {styles.trash}></div>
                 </div>
             </div>
         );
