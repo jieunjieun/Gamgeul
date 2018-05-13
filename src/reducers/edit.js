@@ -1,10 +1,12 @@
-import { GET_IMAGE_URL, GET_BACKGROUND_COLOR, ADD_NEW_TEXTBOX, SET_BOX_STATE, SET_BOX_PROPERTY, SET_EDIT_STATUS } from '../actions/edit';
+import { GET_IMAGE_URL, GET_BACKGROUND_COLOR, ADD_NEW_TEXTBOX, SET_BOX_STATE, SET_BOX_PROPERTY, SET_EDIT_STATUS, GET_GAMGEUL_DOWNLOAD } from '../actions/edit';
 
 const InitialState = {
     editImage: '',
     numberOfBox: 0,
     text: '',
     status: 0,
+    boxisdown: 0,
+    isDownloadOn: 0
 }
 
 const edit = (state = InitialState, action) => {
@@ -30,8 +32,12 @@ const edit = (state = InitialState, action) => {
                 height : action.height
             })
         case SET_EDIT_STATUS:
-            return Object.assign({}, state, {
+            return Object.assign({}, state = InitialState, {
                 boxisdown : action.boxisdown
+            })
+        case GET_GAMGEUL_DOWNLOAD:
+            return Object.assign({}, state, {
+                isDownloadOn: state.isDownloadOn == 0 ? 1 : 0
             })
         default:
             return state;

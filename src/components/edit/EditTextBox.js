@@ -21,6 +21,9 @@ class EditTextBox extends React.Component {
             </div>
         );
     }
+    testfunction() {
+        console.log('hellowodl');
+    }
 }
 
 const mapStateToProps = (state) => {
@@ -35,7 +38,6 @@ const mapDispatchToProps = (dispatch) => {
     return {
         addBox : () => {
             dispatch(add_new_textbox()); 
-            // dispatch(add_test_new_textbox(1));
         }
     }
 }

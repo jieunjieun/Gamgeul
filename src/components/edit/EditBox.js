@@ -3,6 +3,7 @@ import styles from './styles.scss';
 import LeftBox from './LeftBox';
 import RightBox from './RightBox';
 import DeleteButton from '../assets/DeleteButton';
+import Submit from './Submit';
 import { connect } from 'react-redux';
 import { toggle_edit_modal } from '../../actions/animation';
 import { get_background_color, get_image_url } from '../../actions/edit';
@@ -18,16 +19,21 @@ class EditBox extends React.Component {
                 <div className = {styles.editBox}>
                     <DeleteButton onClick = { this.props.modalToggle} />
                     <div className = {styles.wrapBox}>
-                        <LeftBox/>
-                        <RightBox/>
+                        <LeftBox />
+                        <RightBox />
                    </div>
+                   <Submit />
                 </div>
             </div>
         );
     }
 
+    ondownload() {
+        console.log('hello')
+    }
+
     closeModal() {
-        console.log('helo')
+
     }
 }
 

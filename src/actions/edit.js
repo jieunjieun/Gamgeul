@@ -5,6 +5,7 @@ export const SET_BOX_STATE = 'SET_BOX_STATE'
 export const SET_HANDLE_STATE = 'SET_HANDLE_STATE'
 export const SET_BOX_PROPERTY = 'SET_BOX_PROPERTY'
 export const SET_EDIT_STATUS = 'SET_EDIT_STATUS'
+export const GET_GAMGEUL_DOWNLOAD = 'GET_GAMGEUL_DOWNLOAD'
 
 export function get_image_url(url) {
     return {
@@ -43,10 +44,9 @@ export function set_edit_status (boxisdown) {
     }
 }
 
-
-
-
-
-
-
-
+export function get_gamgeul_download(isDownloadOn) {
+    return {
+        type: GET_GAMGEUL_DOWNLOAD,
+        isDownloadOn
+    }
+}

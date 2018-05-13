@@ -9,22 +9,20 @@ class TextBox extends React.Component {
         super(props);
         this.state = {
             box: [],
-            isBoxDown: false,
-            isHandleDown: false,
+            currentBox : ''
         }
         this.addDyna = this.addDyna.bind(this);
+        this.backclick = this.backclick.bind(this);
     }
 
     
     componentWillReceiveProps(nextprops) {
-        // const arr = JSON.stringify(nextprops);
-        // for(const key in arr) {
-        //     alert(key + "is" + arr[key]);
-        // }
-        console.log(JSON.stringify(nextprops));
+        // console.log(JSON.stringify(nextprops));
         const name = Object.keys(JSON.parse(JSON.stringify(nextprops)));
         // if(JSON.stringify(nextprops).length === 17) {
-        if(name.length == 1) {
+        // console.log(JSON.parse(JSON.stringify(nextprops)));
+        const value = JSON.parse(JSON.stringify(nextprops))
+        if(name) {
             this.state.box.push({id : this.props.numberOfBox + 1, name: 'hello'})
         }
     }
@@ -35,20 +33,25 @@ class TextBox extends React.Component {
             {
                 this.state.box.map((currentBox) => {
                     return(
-                        <div className = {styles.box} key = { currentBox.id } id = { currentBox.id } onClick = {() => this.setborder(currentBox.id)}>
-                        <textarea onKeyDown = {() => this.resize(this, currentBox.id)} onKeyUp = {() => this.resize(this, currentBox.id)}id = {'text'+currentBox.id} placeholder="텍스트를 입력해주세요"></textarea>
-                        <div className = {styles.boxHandle} id = {'handle' + currentBox.id}> </div>
+                        <div className = {styles.box} key = { currentBox.id } id = { currentBox.id } onClick = {(e) => this.setborder(e, currentBox.id)}>
+                        <textarea onKeyDown = {() => this.resize(this, currentBox.id)} onKeyUp = {() => this.resize(this, currentBox.id)}id = {'text'+currentBox.id} placeholder="텍스트를 입력해주세요" onKeyDown = {(e) => this.setborder(e, currentBox.id)}></textarea>
+                        {/* <div className = {styles.boxHandle} id = {'handle' + currentBox.id}> </div> */}
                     </div>
                     )
                 })
             }
             </div>
         )
-        
     }
 
     backclick() {
-        console.log('on textbox');
+        const id = this.state.currentBox;
+        var box = document.getElementById(id);
+        
+        if(id) {
+            box.style.border = "none";
+        }
+
     }
 
     componentDidUpdate() {
@@ -57,9 +60,20 @@ class TextBox extends React.Component {
         // this.handleDyna(id)
     }
 
-    setborder(id) {
-        this.props.isBoxEditDown(1);
-        // console.log(id)
+    setborder(e,id) {
+
+        this.setState({
+            currentBox : id
+        }) 
+        const boxid = this.state.currentBox;
+        var currentBox = document.getElementById(boxid);
+
+        if(currentBox) {
+            currentBox.style.border = "1px dashed #C4C4C4";
+        }
+        else {
+            // console.log('no currentbox');
+        }
     }  
 
     resize(obj, id) {
@@ -79,7 +93,6 @@ class TextBox extends React.Component {
         var isDown = false; // 눌렸나 안눌렸나 확인
         var handleisDown = false;
         var mousePosition; //마우스 위치
-        const isBoxDown = this.state.isBoxDown;
 
         if(currentBox) {    //현재 생성된 박스가 있으면
             const elePosition = currentBox.getBoundingClientRect();    // 현재 생성된 박스의 크기

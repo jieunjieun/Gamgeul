@@ -29,10 +29,8 @@ class EditBackground extends React.Component {
         var file = e.target.files[0];
 
         reader.onloadend = () => {
-            console.log(reader.result);            
             this.props.imageChange(reader.result)
         }
-        console.log(reader.readAsDataURL(file));
         reader.readAsDataURL(file);
     }
 
