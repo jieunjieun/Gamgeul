@@ -54,16 +54,27 @@ export function get_gamgeul_download(isDownloadOn) {
     }
 }
 
-
 export function set_gamgeul_status(value) {
-    return function (dispatch) {
-        return dispatch(
-            get_gamgeul_download(value)
-        ).then(() => {
+    return dispatch => {
+        dispatch(get_gamgeul_download(value))
+        setTimeout(() => {
             dispatch(stop_gamgeul_download())
         })
     }
 }
+
+// export function set_gamgeul_status(value) {
+//     return function (dispatch) {
+//         return get_gamgeul_download(value).then(
+//             dispatch(stop_gamgeul_download())
+//         )
+//         // dispatch(
+//         //     get_gamgeul_download(value)
+//         // ).then(() => {
+//         //     dispatch(stop_gamgeul_download())
+//         // })
+//     }
+// }
 
 export function stop_gamgeul_download () {
     return {
