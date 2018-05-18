@@ -29,7 +29,6 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         modalClose : () => {
-            console.log('hello')
             dispatch(toggle_view_modal())
         }
     }

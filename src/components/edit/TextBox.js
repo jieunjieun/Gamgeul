@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './styles.scss'
 import TextBoxHandle from './TextBoxHandle';
-import { add_new_textbox, set_edit_status } from '../../actions/edit';
+import { add_new_textbox, set_edit_status, get_current_box } from '../../actions/edit';
 import { connect } from 'react-redux';
 
 class TextBox extends React.Component {
@@ -17,10 +17,7 @@ class TextBox extends React.Component {
 
     
     componentWillReceiveProps(nextprops) {
-        // console.log(JSON.stringify(nextprops));
         const name = Object.keys(JSON.parse(JSON.stringify(nextprops)));
-        // if(JSON.stringify(nextprops).length === 17) {
-        // console.log(JSON.parse(JSON.stringify(nextprops)));
         const value = JSON.parse(JSON.stringify(nextprops))
         if(name) {
             this.state.box.push({id : this.props.numberOfBox + 1, name: 'hello'})
@@ -61,10 +58,10 @@ class TextBox extends React.Component {
     }
 
     setborder(e,id) {
-
         this.setState({
             currentBox : id
         }) 
+        this.props.setCurrentBox(id);
         const boxid = this.state.currentBox;
         var currentBox = document.getElementById(boxid);
 
@@ -167,15 +164,13 @@ class TextBox extends React.Component {
 const mapStateToProps = (state) => {
     return {
         numberOfBox: state.edit.numberOfBox,
-        name: state.edit.name,
-        status : state.edit.boxisdown
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        isBoxEditDown : (value) => {
-            dispatch(set_edit_status(value))
+        setCurrentBox: (value) => {
+            dispatch(get_current_box(value))
         }
     }
 }

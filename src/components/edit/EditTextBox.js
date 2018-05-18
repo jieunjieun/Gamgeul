@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './styles.scss';
 import { connect } from 'react-redux';
-import { add_new_textbox, add_test_new_textbox } from '../../actions/edit';
+import { add_new_textbox,  get_current_box } from '../../actions/edit';
 
 class EditTextBox extends React.Component {
     constructor(props) {
@@ -21,16 +21,11 @@ class EditTextBox extends React.Component {
             </div>
         );
     }
-    testfunction() {
-        console.log('hellowodl');
-    }
 }
 
 const mapStateToProps = (state) => {
     return {
-        id: state.edit.numberOfBox,
-        text: state.edit.text,
-        box : state.edit.boxCreate
+        CurrentBox: state.edit.CurrentBox
     }
 }
 

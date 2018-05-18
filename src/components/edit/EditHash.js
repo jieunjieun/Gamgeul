@@ -52,7 +52,6 @@ class EditHash extends React.Component {
     }
 
     deleteHashtag (id) {
-        console.log(this.state.tags);
         const arr = this.state.tags
         arr.splice(id, 1);
         this.setState({

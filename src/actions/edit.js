@@ -6,6 +6,9 @@ export const SET_HANDLE_STATE = 'SET_HANDLE_STATE'
 export const SET_BOX_PROPERTY = 'SET_BOX_PROPERTY'
 export const SET_EDIT_STATUS = 'SET_EDIT_STATUS'
 export const GET_GAMGEUL_DOWNLOAD = 'GET_GAMGEUL_DOWNLOAD'
+export const STOP_GAMGEUL_DOWNLOAD = 'STOP_GAMGEUL_DOWNLOAD'
+export const DELETE_TEXT_BOX = 'DELETE_TEXT_BOX'
+export const GET_CURRENT_BOX = 'GET_CURRENT_BOX'
 
 export function get_image_url(url) {
     return {
@@ -48,5 +51,43 @@ export function get_gamgeul_download(isDownloadOn) {
     return {
         type: GET_GAMGEUL_DOWNLOAD,
         isDownloadOn
+    }
+}
+
+
+export function set_gamgeul_status(value) {
+    return function (dispatch) {
+        return dispatch(
+            get_gamgeul_download(value)
+        ).then(() => {
+            dispatch(stop_gamgeul_download())
+        })
+    }
+}
+
+export function stop_gamgeul_download () {
+    return {
+        type: STOP_GAMGEUL_DOWNLOAD,
+    }
+}
+
+export function delete_text_box(isDelete) {
+    return {
+        type: DELETE_TEXT_BOX,
+        isDelete
+    }
+}
+
+export function get_current_box (CurrentBox) {
+    return {
+        type: GET_CURRENT_BOX,
+        CurrentBox
+    }
+}
+
+export function test (test) {
+    return {
+        type: TEST,
+        test
     }
 }

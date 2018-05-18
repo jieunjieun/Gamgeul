@@ -29,11 +29,6 @@ class EditBox extends React.Component {
     }
 
     ondownload() {
-        console.log('hello')
-    }
-
-    closeModal() {
-
     }
 }
 

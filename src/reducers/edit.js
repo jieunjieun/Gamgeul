@@ -1,4 +1,4 @@
-import { GET_IMAGE_URL, GET_BACKGROUND_COLOR, ADD_NEW_TEXTBOX, SET_BOX_STATE, SET_BOX_PROPERTY, SET_EDIT_STATUS, GET_GAMGEUL_DOWNLOAD } from '../actions/edit';
+import { GET_IMAGE_URL, GET_BACKGROUND_COLOR, ADD_NEW_TEXTBOX, SET_BOX_STATE, SET_BOX_PROPERTY, SET_EDIT_STATUS, GET_GAMGEUL_DOWNLOAD, DELETE_TEXT_BOX, GET_CURRENT_BOX, TEST, STOP_GAMGEUL_DOWNLOAD } from '../actions/edit';
 
 const InitialState = {
     editImage: '',
@@ -37,8 +37,28 @@ const edit = (state = InitialState, action) => {
             })
         case GET_GAMGEUL_DOWNLOAD:
             return Object.assign({}, state, {
-                isDownloadOn: state.isDownloadOn == 0 ? 1 : 0
+                isDownloadOn: action.isDownloadOn
             })
+
+        case DELETE_TEXT_BOX:
+            return Object.assign({}, state, {
+                isDelete : action.isDelete
+            })
+
+        case GET_CURRENT_BOX:
+            return Object.assign({}, state, {
+                CurrentBox : action.CurrentBox
+            })
+        case TEST:
+            return Object.assign({}, state, {
+                test: action.test
+            })
+
+        case STOP_GAMGEUL_DOWNLOAD:
+            return Object.assign({}, state, {
+                isDownloadOn: 0
+            })
+
         default:
             return state;
     }
