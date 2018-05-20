@@ -1,3 +1,5 @@
+@import 'font';
+
 @mixin disFlex() {
   display: flex;
   justify-content: center;
@@ -70,7 +72,7 @@
   }
   
   .functionBox {
-    width: 300px;
+    width: 400px;
     /* border: 1px solid black; */
     font-family: 'Nanum Gothic', sans-serif;
     margin-left: 10px;
@@ -170,7 +172,7 @@
   }
   
   .fontSize, .fontWeight {
-    width: 100px;
+    width: 90px;
     height: 25px;
   }
   
@@ -274,4 +276,22 @@
     background-color: rgb(86, 107, 126);
     color: white;
     @include disFlex();
+  }
+
+
+  .textalign {
+    width: 60px;
+    height: 20px;
+    background-color: black;
+    display: inline-block;
+  }
+
+  .fontColor {
+    width: 30px;
+    height: 30px;
+    margin: 3px 10px 3px 0;
+    display: inline-flex;
+    background-image: url('../../../assets/artist.png');
+    background-size: 100% auto;
+    background-repeat: no-repeat;
   }

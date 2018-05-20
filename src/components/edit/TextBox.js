@@ -18,18 +18,17 @@ class TextBox extends React.Component {
 
     componentWillReceiveProps(nextprops) {
         if(nextprops.isAdd) {
-            this.state.box.push({id : this.state.numberOfBox})
-            setTimeout(() => {
-                this.setState({
-                    numberOfBox : this.state.numberOfBox + 1
-                })  
-            });
-            event.preventDefault();
+            this.addBox();
         }
-
         if(nextprops.isDelete) {
             this.deleteBox();
         }
+
+        if(((nextprops.fontSize || nextprops.fontStyle || nextprops.fontWeight || nextprops.lineSpacing || nextprops.wordSpacing))) {
+            this.setStyle(nextprops.fontStyle, nextprops.fontSize, nextprops.fontWeight, nextprops.wordSpacing, nextprops.lineSpacing)
+        }
+
+
     }
 
     render() {
@@ -38,8 +37,8 @@ class TextBox extends React.Component {
             {
                 this.state.box.map((currentBox) => {
                     return(
-                        <div className = {styles.box} key = { currentBox.id } id = { currentBox.id } onClick = {(e) => this.setborder(e, currentBox.id)}>
-                        <textarea onKeyDown = {() => this.resize(this, currentBox.id)} onKeyUp = {(event) => this.resize(this, currentBox.id, event)}id = {'text'+currentBox.id} placeholder="텍스트를 입력해주세요" onKeyDown = {(e) => this.setborder(e, currentBox.id)}></textarea>
+                        <div className = {styles.box} key = { currentBox.id } id = { currentBox.id } onClick = {(e) => {this.setborder(e, currentBox.id)}}>
+                        <textarea onKeyDown = {() => this.resize(this, currentBox.id)} onKeyUp = {(event) => this.resize(this, currentBox.id, event)} id = {'text'+currentBox.id} placeholder="텍스트를 입력해주세요" onKeyDown = {(e) => this.setborder(e, currentBox.id)}></textarea>
                         {/* <div className = {styles.boxHandle} id = {'handle' + currentBox.id}> </div> */}
                     </div>
                     )
@@ -49,12 +48,27 @@ class TextBox extends React.Component {
         )
     }
 
+    componentDidUpdate() {
+        const id = this.state.numberOfBox;
+        this.addDyna(id);
+    }
+
+
+    addBox() {
+        this.state.box.push({id : this.state.numberOfBox})
+        setTimeout(() => {
+            this.setState({
+                numberOfBox : this.state.numberOfBox + 1
+            })  
+        });
+        event.preventDefault();
+    }
+
     deleteBox() {
         event.preventDefault();
         const target = this.state.currentBox;
         var index = this.state.box.map(function(x){return x.id}).indexOf(target)
         this.state.box.splice(index, 1 )
-        // this.props.isDeletedBox(); 
     
     }
 
@@ -68,12 +82,36 @@ class TextBox extends React.Component {
 
     }
 
-    componentDidUpdate() {
-        const id = this.state.numberOfBox;
-        this.addDyna(id);
-        // this.handleDyna(id)
+    setStyle(fontStyle, fontSize, fontWeight, wordSpacing, lineSpacing) {
+        const id = this.state.currentBox;
+        console.log(id);
+        const item = document.getElementById("text"+id);
+        console.log(item);
+        const font = this.findFont(fontStyle);
+        // console.log("hello"+font)
+        if(item) {
+            item.style.fontFamily = font
+            item.style.fontSize = fontSize
+            item.style.fontWeight = fontWeight
+            item.style.letterSpacing = wordSpacing
+            item.style.lineHeight = lineSpacing
+        }
     }
 
+    findFont(fontStyle) {
+        if(fontStyle == '나눔고딕') {
+            return "'Nanum Gothic', serif";
+        }
+        
+        if(fontStyle == '나눔명조') {
+            return "'Nanum Myeongjo', serif";
+        }
+
+        if(fontStyle == '나눔고딕 코딩') {
+            return "'Nanum Gothic Coding', serif";
+        }
+    }
+    
     setborder(e,id) {
         this.setState({
             currentBox : id
@@ -81,12 +119,10 @@ class TextBox extends React.Component {
         this.props.setCurrentBox(id);
         var currentBox = document.getElementById(id);
 
-
         if(currentBox) {
             currentBox.style.border = "1px dashed #C4C4C4";
         }
-        else {
-        }
+
     }  
 
     resize(obj, id, event) {
@@ -181,7 +217,12 @@ const mapStateToProps = (state) => {
     return {
         // numberOfBox: state.edit.numberOfBox,
         isDelete: state.edit.isDelete,
-        isAdd : state.edit.isAddBox
+        isAdd : state.edit.isAddBox,
+        fontStyle: state.edit.font,
+        fontWeight : state.edit.weight,
+        fontSize : state.edit.size,
+        wordSpacing : state.edit.wordSpacing,
+        lineSpacing : state.edit.lineSpacing
     }
 }
 
