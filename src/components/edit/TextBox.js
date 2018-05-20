@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './styles.scss'
 import TextBoxHandle from './TextBoxHandle';
-import { add_new_textbox, set_edit_status, get_current_box, delete_text_box, set_box_style, set_new_textbox } from '../../actions/edit';
+import * as actions from '../../actions/edit';
 import { connect } from 'react-redux';
 
 class TextBox extends React.Component {
@@ -25,39 +25,11 @@ class TextBox extends React.Component {
                 })  
             });
             event.preventDefault();
-            console.log('is delete is ' + nextprops.isDelete);
         }
 
         if(nextprops.isDelete) {
             this.deleteBox();
-            
         }
-
-        console.log(nextprops.isDelete);
-
-        // console.log(this.props.isDelete)
-        // if(!this.props.isAdd) {
-        //     console.log('is false')
-        // } else {
-        //     console.log('is true')
-        // }
-
-        // if(this.props.isDelete == 1 && !this.props.isAdd) {
-        //     this.deleteBox();
-        // }
-
-        
-        // const name = Object.keys(JSON.parse(JSON.stringify(nextprops)));
-        // const value = JSON.parse(JSON.stringify(nextprops))
-
-        // if(this.state.addStatus == 1) {
-        //     this.state.box.push({id : this.props.numberOfBox + 1, name: 'hello'})
-        // }
-
-        
-        // if(value.isDelete == 1 && this.props.isAdd == 0) {
-        //     this.deleteBox()
-        // }
     }
 
     render() {
@@ -81,10 +53,7 @@ class TextBox extends React.Component {
         event.preventDefault();
         const target = this.state.currentBox;
         var index = this.state.box.map(function(x){return x.id}).indexOf(target)
-        console.log('삭제할 index == ' + index);
         this.state.box.splice(index, 1 )
-        console.log('box 결과')
-        console.log(this.state.box)
         // this.props.isDeletedBox(); 
     
     }
@@ -106,7 +75,6 @@ class TextBox extends React.Component {
     }
 
     setborder(e,id) {
-        console.log(id);
         this.setState({
             currentBox : id
         }) 
@@ -220,7 +188,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         setCurrentBox: (value) => {
-            dispatch(get_current_box(value))
+            dispatch(actions.get_current_box(value))
         }
     }
 }
