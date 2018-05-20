@@ -1,4 +1,4 @@
-import { GET_IMAGE_URL, GET_BACKGROUND_COLOR, ADD_NEW_TEXTBOX, SET_BOX_STATE, SET_BOX_PROPERTY, SET_EDIT_STATUS, GET_GAMGEUL_DOWNLOAD, DELETE_TEXT_BOX, GET_CURRENT_BOX, TEST, STOP_GAMGEUL_DOWNLOAD } from '../actions/edit';
+import { GET_IMAGE_URL, GET_BACKGROUND_COLOR, ADD_NEW_TEXTBOX, SET_BOX_STATE, SET_BOX_PROPERTY, SET_EDIT_STATUS, GET_GAMGEUL_DOWNLOAD, DELETE_TEXT_BOX, GET_CURRENT_BOX, TEST, STOP_GAMGEUL_DOWNLOAD, SET_BOX_STYLE } from '../actions/edit';
 
 const InitialState = {
     editImage: '',
@@ -6,11 +6,13 @@ const InitialState = {
     text: '',
     status: 0,
     boxisdown: 0,
-    isDownloadOn: 0
+    isDownloadOn: 0,
+    isAddBox : 1
 }
 
 const edit = (state = InitialState, action) => {
     switch(action.type) {
+
         case GET_IMAGE_URL:
             return Object.assign({}, state, {
                 editImage: action.url
@@ -21,11 +23,16 @@ const edit = (state = InitialState, action) => {
                 currentColor: action.color
             })
             
-        case ADD_NEW_TEXTBOX:
+        // case ADD_NEW_TEXTBOX:
+        //     return Object.assign({}, state, {
+        //         numberOfBox: state.numberOfBox + 1,
+        //         text : action.text,
+        //     })
+        case ADD_NEW_TEXTBOX : 
             return Object.assign({}, state, {
-                numberOfBox: state.numberOfBox + 1,
-                text : action.text,
+                isAddBox : action.isAddBox
             })
+
         case SET_BOX_PROPERTY:
             return Object.assign({}, state, {
                 width : action.width,
@@ -57,6 +64,15 @@ const edit = (state = InitialState, action) => {
         case STOP_GAMGEUL_DOWNLOAD:
             return Object.assign({}, state, {
                 isDownloadOn: 0
+            })
+
+        case SET_BOX_STYLE:
+            return Object.assign({}, state, {
+                font : action.font,
+                size : action.size,
+                weight : action.weight,
+                wordSpacing : action.wordSpacing,
+                lineSpacing : action.lineSpacing
             })
 
         default:

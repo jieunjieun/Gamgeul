@@ -9,6 +9,7 @@ export const GET_GAMGEUL_DOWNLOAD = 'GET_GAMGEUL_DOWNLOAD'
 export const STOP_GAMGEUL_DOWNLOAD = 'STOP_GAMGEUL_DOWNLOAD'
 export const DELETE_TEXT_BOX = 'DELETE_TEXT_BOX'
 export const GET_CURRENT_BOX = 'GET_CURRENT_BOX'
+export const SET_BOX_STYLE = 'SET_BOX_STYLE'
 
 export function get_image_url(url) {
     return {
@@ -24,11 +25,28 @@ export function get_background_color(color) {
     }
 }
 
-export function add_new_textbox (numberOfBox, text, box) {
+// export function add_new_textbox (numberOfBox, text, box) {
+//     return {
+//         type: ADD_NEW_TEXTBOX,
+//         numberOfBox,
+//         text,
+//     }
+// }
+
+export function add_new_textbox (isAddBox) {
     return {
         type: ADD_NEW_TEXTBOX,
-        numberOfBox,
-        text,
+        isAddBox
+    }
+}
+
+export function set_new_textbox() {
+    return dispatch => {
+        dispatch(add_new_textbox(1))
+        setTimeout(() => {
+         dispatch(add_new_textbox(0))   
+        });
+
     }
 }
 
@@ -76,6 +94,16 @@ export function delete_text_box(isDelete) {
     }
 }
 
+export function set_delete_text_box () {
+    return dispatch => {
+        setTimeout(() => {
+            dispatch(delete_text_box(0))
+        });
+        dispatch(delete_text_box(1))
+    }
+}
+
+
 export function get_current_box (CurrentBox) {
     return {
         type: GET_CURRENT_BOX,
@@ -83,9 +111,13 @@ export function get_current_box (CurrentBox) {
     }
 }
 
-export function test (test) {
+export function set_box_style (font, size, weight, wordSpacing, lineSpacing) {
     return {
-        type: TEST,
-        test
+        type: SET_BOX_STYLE,
+        font,
+        size,
+        weight,
+        wordSpacing,
+        lineSpacing
     }
-}
+}   

@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './styles.scss'
 import TextBoxHandle from './TextBoxHandle';
-import { add_new_textbox, set_edit_status, get_current_box } from '../../actions/edit';
+import { add_new_textbox, set_edit_status, get_current_box, delete_text_box, set_box_style, set_new_textbox } from '../../actions/edit';
 import { connect } from 'react-redux';
 
 class TextBox extends React.Component {
@@ -9,19 +9,55 @@ class TextBox extends React.Component {
         super(props);
         this.state = {
             box: [],
-            currentBox : ''
+            currentBox : '',
+            numberOfBox : 0
         }
         this.addDyna = this.addDyna.bind(this);
         this.backclick = this.backclick.bind(this);
     }
 
-    
     componentWillReceiveProps(nextprops) {
-        const name = Object.keys(JSON.parse(JSON.stringify(nextprops)));
-        const value = JSON.parse(JSON.stringify(nextprops))
-        if(name) {
-            this.state.box.push({id : this.props.numberOfBox + 1, name: 'hello'})
+        if(nextprops.isAdd) {
+            this.state.box.push({id : this.state.numberOfBox})
+            setTimeout(() => {
+                this.setState({
+                    numberOfBox : this.state.numberOfBox + 1
+                })  
+            });
+            event.preventDefault();
+            console.log('is delete is ' + nextprops.isDelete);
         }
+
+        if(nextprops.isDelete) {
+            this.deleteBox();
+            
+        }
+
+        console.log(nextprops.isDelete);
+
+        // console.log(this.props.isDelete)
+        // if(!this.props.isAdd) {
+        //     console.log('is false')
+        // } else {
+        //     console.log('is true')
+        // }
+
+        // if(this.props.isDelete == 1 && !this.props.isAdd) {
+        //     this.deleteBox();
+        // }
+
+        
+        // const name = Object.keys(JSON.parse(JSON.stringify(nextprops)));
+        // const value = JSON.parse(JSON.stringify(nextprops))
+
+        // if(this.state.addStatus == 1) {
+        //     this.state.box.push({id : this.props.numberOfBox + 1, name: 'hello'})
+        // }
+
+        
+        // if(value.isDelete == 1 && this.props.isAdd == 0) {
+        //     this.deleteBox()
+        // }
     }
 
     render() {
@@ -31,7 +67,7 @@ class TextBox extends React.Component {
                 this.state.box.map((currentBox) => {
                     return(
                         <div className = {styles.box} key = { currentBox.id } id = { currentBox.id } onClick = {(e) => this.setborder(e, currentBox.id)}>
-                        <textarea onKeyDown = {() => this.resize(this, currentBox.id)} onKeyUp = {() => this.resize(this, currentBox.id)}id = {'text'+currentBox.id} placeholder="텍스트를 입력해주세요" onKeyDown = {(e) => this.setborder(e, currentBox.id)}></textarea>
+                        <textarea onKeyDown = {() => this.resize(this, currentBox.id)} onKeyUp = {(event) => this.resize(this, currentBox.id, event)}id = {'text'+currentBox.id} placeholder="텍스트를 입력해주세요" onKeyDown = {(e) => this.setborder(e, currentBox.id)}></textarea>
                         {/* <div className = {styles.boxHandle} id = {'handle' + currentBox.id}> </div> */}
                     </div>
                     )
@@ -41,23 +77,36 @@ class TextBox extends React.Component {
         )
     }
 
+    deleteBox() {
+        event.preventDefault();
+        const target = this.state.currentBox;
+        var index = this.state.box.map(function(x){return x.id}).indexOf(target)
+        console.log('삭제할 index == ' + index);
+        this.state.box.splice(index, 1 )
+        console.log('box 결과')
+        console.log(this.state.box)
+        // this.props.isDeletedBox(); 
+    
+    }
+
     backclick() {
         const id = this.state.currentBox;
         var box = document.getElementById(id);
         
-        if(id) {
+        if(box) {
             box.style.border = "none";
         }
 
     }
 
     componentDidUpdate() {
-        const id = this.props.numberOfBox;
+        const id = this.state.numberOfBox;
         this.addDyna(id);
         // this.handleDyna(id)
     }
 
     setborder(e,id) {
+        console.log(id);
         this.setState({
             currentBox : id
         }) 
@@ -72,7 +121,7 @@ class TextBox extends React.Component {
         }
     }  
 
-    resize(obj, id) {
+    resize(obj, id, event) {
         var currentBox = document.getElementById(id);
         var textarea = document.getElementById('text'+id);
         if(textarea.scrollHeight > 104) {
@@ -162,7 +211,9 @@ class TextBox extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-        numberOfBox: state.edit.numberOfBox,
+        // numberOfBox: state.edit.numberOfBox,
+        isDelete: state.edit.isDelete,
+        isAdd : state.edit.isAddBox
     }
 }
 
