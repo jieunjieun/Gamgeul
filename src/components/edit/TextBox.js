@@ -62,14 +62,13 @@ class TextBox extends React.Component {
             currentBox : id
         }) 
         this.props.setCurrentBox(id);
-        const boxid = this.state.currentBox;
-        var currentBox = document.getElementById(boxid);
+        var currentBox = document.getElementById(id);
+
 
         if(currentBox) {
             currentBox.style.border = "1px dashed #C4C4C4";
         }
         else {
-            // console.log('no currentbox');
         }
     }  
 
