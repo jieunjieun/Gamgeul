@@ -12,12 +12,13 @@ class EditTextStyle extends React.Component {
             fontWeight: '',
             wordSpacing: '',
             lineSpacing: '',
+            fontColor: '',
             textSizeLimit : 100
         }
     }
 
     componentDidUpdate(nextProps, nextState) {
-        this.props.changeStyle(this.state.fontStyle, this.state.fontSize, this.state.fontWeight, this.state.wordSpacing, this.state.lineSpacing)
+        this.props.changeStyle(this.state.fontStyle, this.state.fontSize, this.state.fontWeight, this.state.wordSpacing, this.state.lineSpacing, this.state.fontColor)
     }
 
     render() {
@@ -50,9 +51,10 @@ class EditTextStyle extends React.Component {
                         )
                         }
                     </select>
-                    <div className = {styles.fontColor}>
-
-                    </div>
+                    <select className = {styles.fontColor} onChange = {(e) => this.fontColor(e)}>
+                        <option>black</option>
+                        <option>white</option>
+                    </select>
                     <div className = {styles.logowrap}>
                         <select className = {styles.between} onChange = {(e) => this.wordSpacing(e)}>
                           {
@@ -89,6 +91,12 @@ class EditTextStyle extends React.Component {
         })
     }
 
+    fontColor(e) {
+        this.setState({
+            fontColor : e.target.value
+        })
+    }
+
     fontWeight(e) {
         this.setState({
             fontWeight : e.target.value
@@ -115,14 +123,14 @@ const mapStateToProps = (state) => {
         fontWeight : state.edit.weight,
         fontSize : state.edit.size,
         wordSpacing : state.edit.wordSpacing,
-        lineSpacing : state.edit.lineSpacing
+        lineSpacing : state.edit.lineSpacing,
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        changeStyle: (style, size, weight, word, line) => {
-            dispatch(set_box_style(style, size, weight, word, line))
+        changeStyle: (style, size, weight, word, line, color) => {
+            dispatch(set_box_style(style, size, weight, word, line, color))
         }
     }
 }

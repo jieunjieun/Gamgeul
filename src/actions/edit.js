@@ -111,13 +111,14 @@ export function get_current_box (CurrentBox) {
     }
 }
 
-export function set_box_style (font, size, weight, wordSpacing, lineSpacing) {
+export function set_box_style (font, size, weight, wordSpacing, lineSpacing, fontColor) {
     return {
         type: SET_BOX_STYLE,
         font,
         size,
         weight,
         wordSpacing,
-        lineSpacing
+        lineSpacing,
+        fontColor
     }
 }   
