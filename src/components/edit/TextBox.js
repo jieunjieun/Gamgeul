@@ -24,8 +24,8 @@ class TextBox extends React.Component {
             this.deleteBox();
         }
 
-        if(((nextprops.fontSize || nextprops.fontStyle || nextprops.fontWeight || nextprops.lineSpacing || nextprops.wordSpacing || nextprops.fontColor))) {
-            this.setStyle(nextprops.fontStyle, nextprops.fontSize, nextprops.fontWeight, nextprops.wordSpacing, nextprops.lineSpacing, nextprops.fontColor)
+        if(((nextprops.fontSize || nextprops.fontStyle || nextprops.fontWeight || nextprops.lineSpacing || nextprops.wordSpacing || nextprops.fontColor || nextprops.textAlign))) {
+            this.setStyle(nextprops.fontStyle, nextprops.fontSize, nextprops.fontWeight, nextprops.wordSpacing, nextprops.lineSpacing, nextprops.fontColor, nextprops.textAlign)
         }
 
 
@@ -82,13 +82,10 @@ class TextBox extends React.Component {
 
     }
 
-    setStyle(fontStyle, fontSize, fontWeight, wordSpacing, lineSpacing, color) {
+    setStyle(fontStyle, fontSize, fontWeight, wordSpacing, lineSpacing, color, textAlign) {
         const id = this.state.currentBox;
-        console.log(id);
         const item = document.getElementById("text"+id);
-        console.log(item);
         const font = this.findFont(fontStyle);
-        console.log(color);
         // console.log("hello"+font)
         if(item) {
             item.style.fontFamily = font
@@ -97,6 +94,7 @@ class TextBox extends React.Component {
             item.style.letterSpacing = wordSpacing
             item.style.lineHeight = lineSpacing
             item.style.color = color
+            item.style.textAlign = textAlign
         }
     }
 
@@ -225,7 +223,8 @@ const mapStateToProps = (state) => {
         fontSize : state.edit.size,
         wordSpacing : state.edit.wordSpacing,
         lineSpacing : state.edit.lineSpacing,
-        fontColor: state.edit.fontColor
+        fontColor: state.edit.fontColor,
+        textAlign : state.edit.textAlign
     }
 }
 

@@ -111,7 +111,7 @@ export function get_current_box (CurrentBox) {
     }
 }
 
-export function set_box_style (font, size, weight, wordSpacing, lineSpacing, fontColor) {
+export function set_box_style (font, size, weight, wordSpacing, lineSpacing, fontColor, textAlign) {
     return {
         type: SET_BOX_STYLE,
         font,
@@ -119,6 +119,7 @@ export function set_box_style (font, size, weight, wordSpacing, lineSpacing, fon
         weight,
         wordSpacing,
         lineSpacing,
-        fontColor
+        fontColor,
+        textAlign
     }
 }   

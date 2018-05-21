@@ -73,7 +73,8 @@ const edit = (state = InitialState, action) => {
                 weight : action.weight,
                 wordSpacing : action.wordSpacing,
                 lineSpacing : action.lineSpacing,
-                fontColor: action.fontColor
+                fontColor: action.fontColor,
+                textAlign : action.textAlign
             })
 
         default:

@@ -13,12 +13,12 @@ class EditTextStyle extends React.Component {
             wordSpacing: '',
             lineSpacing: '',
             fontColor: '',
-            textSizeLimit : 100
+            textAlign : ''
         }
     }
 
     componentDidUpdate(nextProps, nextState) {
-        this.props.changeStyle(this.state.fontStyle, this.state.fontSize, this.state.fontWeight, this.state.wordSpacing, this.state.lineSpacing, this.state.fontColor)
+        this.props.changeStyle(this.state.fontStyle, this.state.fontSize, this.state.fontWeight, this.state.wordSpacing, this.state.lineSpacing, this.state.fontColor, this.state.textAlign)
     }
 
     render() {
@@ -26,6 +26,7 @@ class EditTextStyle extends React.Component {
             <div className = {styles.functionBox}>
                 <div className = {styles.functionTitle}>텍스트 스타일</div>
                 <div className = {styles.functions}>
+                    <div className = {styles.styleTitle}>폰트</div>
                     <select className = {styles.fontSize} onChange = {(e) => this.fontStyle(e)}>
                         <option>나눔고딕</option>
                         <option>나눔명조</option>
@@ -36,6 +37,8 @@ class EditTextStyle extends React.Component {
                         <option>제주 명조</option>
                         <option>한나체</option>
                     </select>
+
+                    <div className = {styles.styleTitle}>사이즈</div>
                     <select className = {styles.fontSize} onChange = {(e) =>  this.fontSize(e)}>
                         {
                             Array(50).fill(1).map((x, i) =>
@@ -43,6 +46,7 @@ class EditTextStyle extends React.Component {
                             )
                         }
                     </select>
+                    <div className = {styles.styleTitle}>굵기</div>
                     
                     <select className = {styles.fontWeight} onChange = {(e) => this.fontWeight(e)}>
                         {
@@ -51,6 +55,8 @@ class EditTextStyle extends React.Component {
                         )
                         }
                     </select>
+                    <div className = {styles.styleTitle}>색상</div>
+
                     <select className = {styles.fontColor} onChange = {(e) => this.fontColor(e)}>
                         <option>black</option>
                         <option>white</option>
@@ -71,6 +77,12 @@ class EditTextStyle extends React.Component {
                             <option key = {i}> {i+10}px</option>
                         )
                         }
+                    </select>
+                    <div className = {styles.styleTitle}>위치</div>
+                    <select className = {styles.textalign} onChange = {(e) => this.textAlign(e)}>
+                        <option>left</option>
+                        <option>center</option>
+                        <option>right</option>
                     </select>
                     </div>
                     
@@ -115,25 +127,23 @@ class EditTextStyle extends React.Component {
         })
     }
 
+    textAlign(e) {
+        this.setState({
+            textAlign : e.target.value
+        })
+    }
+
     
 }
-const mapStateToProps = (state) => {
-    return {
-        fontStyle: state.edit.font,
-        fontWeight : state.edit.weight,
-        fontSize : state.edit.size,
-        wordSpacing : state.edit.wordSpacing,
-        lineSpacing : state.edit.lineSpacing,
-    }
-}
+
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        changeStyle: (style, size, weight, word, line, color) => {
-            dispatch(set_box_style(style, size, weight, word, line, color))
+        changeStyle: (style, size, weight, word, line, color, align) => {
+            dispatch(set_box_style(style, size, weight, word, line, color, align))
         }
     }
 }
 
-EditTextStyle = connect(mapStateToProps, mapDispatchToProps)(EditTextStyle)
+EditTextStyle = connect(undefined, mapDispatchToProps)(EditTextStyle)
 export default EditTextStyle;

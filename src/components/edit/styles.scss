@@ -281,8 +281,7 @@
 
   .textalign {
     width: 60px;
-    height: 20px;
-    background-color: black;
+    height: 25px;
     display: inline-block;
   }
 
@@ -290,4 +289,10 @@
     width: 60px;
     height: 25px;
     margin: 3px 10px 3px 0;
+  }
+
+  .styleTitle {
+    display: inline-block;
+    font-size: 12px;
+    margin-right: 5px;
   }
