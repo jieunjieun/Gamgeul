@@ -8,9 +8,9 @@ class Post extends React.Component {
         super(props);
         this.state = {
             list: [
-                {number: '', image: '../../../assets/trash.png'},
-                {number: ''},
-                {number: ''},
+                {number: '', image: require('../../../assets/testImage1.png')},
+                {number: '', image : require('../../../assets/testImage2.png')},
+                {number: '', image : require('../../../assets/testImage3.png')},
                 {number: ''},
                 {number: ''},
                 {number: ''},

@@ -51,6 +51,7 @@ class TextBox extends React.Component {
     componentDidUpdate() {
         const id = this.state.numberOfBox;
         this.addDyna(id);
+        this.handleDyna(id);
     }
 
 
@@ -61,7 +62,6 @@ class TextBox extends React.Component {
                 numberOfBox : this.state.numberOfBox + 1
             })  
         });
-        event.preventDefault();
     }
 
     deleteBox() {
@@ -126,6 +126,7 @@ class TextBox extends React.Component {
     }  
 
     resize(obj, id, event) {
+        console.log('resize');
         var currentBox = document.getElementById(id);
         var textarea = document.getElementById('text'+id);
         if(textarea.scrollHeight > 104) {
@@ -188,28 +189,31 @@ class TextBox extends React.Component {
     handleDyna(value) {
         var currentBox = document.getElementById(value);
         var handleBox = document.getElementById('handle' + value);   //크기 조정 핸들
-        const elePosition = currentBox.getBoundingClientRect();    // 현재 생성된 박스의 크기
 
-        handleBox.addEventListener('mousedown', initiallize, false);
+        if(handleBox) {
+            const elePosition = currentBox.getBoundingClientRect();    // 현재 생성된 박스의 크기
 
-        function initiallize(e) {
-            // handleisDown = true;
-            handleBox.addEventListener('mousemove', startResize, false);
-            handleBox.addEventListener('mouseup', stopResize, false);
+            handleBox.addEventListener('mousedown', initiallize, false);
+    
+            function initiallize(e) {
+                e.preventDefault(); 
+                // handleisDown = true;
+                handleBox.addEventListener('mousemove', startResize, false);
+                handleBox.addEventListener('mouseup', stopResize, false);
+            }
+    
+            function startResize(e) {
+                currentBox.style.width = (elePosition.width + e.offsetX) + 'px';
+                currentBox.style.height = (elePosition.height + e.offsetY) + 'px';
+            }
+    
+            function stopResize(e) {
+                handleBox.removeEventListener('mousemove', startResize, false);
+                handleBox.removeEventListener('mouseup', stopResize, false);
+            }
+
         }
-
-        function startResize(e) {
-            // isDown = false;
-            currentBox.style.width = (elePosition.width + e.offsetX) + 'px';
-            currentBox.style.height = (elePosition.height + e.offsetY) + 'px';
-        }
-
-        function stopResize(e) {
-            handleBox.removeEventListener('mousemove', startResize, false);
-            handleBox.removeEventListener('mouseup', stopResize, false);
-            // handleisDown = false;
-            // isDown = true;
-        }
+        
     }
 }
 

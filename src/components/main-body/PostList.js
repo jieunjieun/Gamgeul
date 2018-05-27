@@ -6,12 +6,12 @@ import { toggle_view_modal } from '../../actions/animation'
 class PostList extends React.Component {
     constructor(props) {
         super(props);
+        
     }
     render() {
         return(
             <div className = {styles.post} onClick = {this.props.toggleModal}>
-            {/* <img src = { backImage }/> */}
-                status is : { this.props.status }
+                <img src={this.props.image}/>
             </div>
         );
     }

@@ -19,7 +19,7 @@ class ImageBox extends React.Component {
         return(
             <div id = "imageBox" className = {styles.imageBox} style = {{background: this.props.color}}>
                 <TextBox/>
-                <img src = {this.props.image_url}/>
+                <img src = {this.props.image_url} alt = ""/>
                 <a id = "download"></a>
             </div>
 
