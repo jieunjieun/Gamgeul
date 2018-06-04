@@ -3,6 +3,7 @@ import styles from './style.scss';
 import Logo from './Logo';
 import Description from './Description';
 import Func from './Functions';
+import Header from './Header';
 import Info from './Info';
 import backImg from '../../../assets/main_background.jpg';
 
@@ -20,8 +21,7 @@ class Basic extends React.Component {
     render() {
         return(
             <div className = {styles.basic}>
-                <Logo/>
-                <Info/>
+                <Header />
                 <Description/>
                 <Func/>
             </div>

@@ -6,15 +6,17 @@ import { Provider } from 'react-redux';
 import { createLogger } from 'redux-logger';
 import ReduxThunk from 'redux-thunk';
 import reduApp from './reducers/combine';
-import { Router, Route, browserHistory, IndexRoute }  from 'react-router';
+import { BrowserRouter } from 'react-router-dom';
 
 let store = createStore(reduApp, applyMiddleware(ReduxThunk));
 
 const rootElement = document.getElementById('root');
 
 ReactDOM.render(
-    <Provider store = {store} >
-        <Main/>
-    </Provider>,
+    <BrowserRouter>
+        <Provider store = {store} >
+            <Main/>
+        </Provider>
+    </BrowserRouter>,
     rootElement
 )

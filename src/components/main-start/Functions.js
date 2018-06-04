@@ -5,6 +5,7 @@ import tapeImg1 from '../../../assets/tape1.png';
 import tapeImg2 from '../../../assets/tape2.png';
 import { connect } from 'react-redux';
 import { toggle_edit_modal } from '../../actions/animation';
+import { Route, Switch, Link } from 'react-router-dom';
 
 class Functions extends React.Component {
     constructor(props) {
@@ -16,8 +17,9 @@ class Functions extends React.Component {
                 <div className = {styles.create} onClick = {this.props.modalToggle}>
                     감글 생성 하기
                 </div>
+                
                 <div className = {styles.list} >
-                    내 감글 목록
+                <Link to = "/">내 감글 목록</Link>
                 </div>
             </div>
         );
