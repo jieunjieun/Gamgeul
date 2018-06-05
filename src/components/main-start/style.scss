@@ -102,6 +102,7 @@
   cursor: pointer;
   background-image: url('../../../assets/tape2.png');
   z-index: 3;
+  text-decoration: none !important;
   font-size: 12px;
 }
 
@@ -128,7 +129,6 @@
   left: 0;
   width: 100vw;
   height: 100px;
-  border: 1px solid black;
   display: flex;
   align-items: center;
 }

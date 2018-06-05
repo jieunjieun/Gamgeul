@@ -19,7 +19,7 @@ class Functions extends React.Component {
                 </div>
                 
                 <div className = {styles.list} >
-                <Link to = "/">내 감글 목록</Link>
+                    <Link to = "/myproduct" style={{ textDecoration : 'none', color : 'black' }}>내 감글 목록</Link>
                 </div>
             </div>
         );
